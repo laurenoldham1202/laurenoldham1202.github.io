@@ -6,16 +6,120 @@
 
 <meta name=‘viewport’ content=‘initial-scale=1,maximum-scale=1,user-scalable=no’ />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />    
+<link href='http://fonts.googleapis.com/css?family=Imprima' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+    
 <style>
     
-/* CSS style rules go here! */   
-
+/* CSS style rules go here! */ 
+    body {  
+        background: #f5f5f5;   
+        font-family: Imprima, sans-serif;
+    }
+    header { 
+        width: 100%;
+        min-width: 800px;
+        margin: 0 auto;
+        background: steelblue;
+        padding: 15px 0 20px;
+    }
+    h1 { 
+        font-family: Dosis, sans-serif;
+        color: #375671; 
+        width: 80%;
+        margin: 0 auto;
+        color: whitesmoke;
+    }
+    h2 { 
+        font-family: Dosis, sans-serif;
+        color: #375671;
+        width: 80%;
+        margin: 0 auto;
+        color: whitesmoke;
+    }
+    h3 {
+        font-family: Dosis, sans-serif;
+        color: #003d71
+    }
+    p { 
+        font-size: .9em; 
+        color: #375671; 
+    }
+    ul {
+        list-style-type: none; 
+        font-size: .9em; 
+        color: #375671; 
+        line-height: 1.6em;
+    }
+    a, a:visited {   
+        color: #003d71;
+    }
+    .project {
+        width: 80%;
+        min-width: 800px;
+        height: 100%;
+        margin: 35px auto;
+    }
+    .project:after{
+        content: "";
+        display: table;
+        clear: both; 
+    }
+    .project-image {
+        width: 388px;
+        height: 240px;
+        background: white;
+        float: left;
+        margin-right: 20px;
+        border: 2px solid #dddddd;
+    }
 </style>
 </head>
 
 <body>
-
-    <p>Hello World! I’m going to be a portfolio page.</p>
+    
+    
+    <header>
+        <h1>MAP 672: Programming for Web Mapping</h1>
+        <h2>Web Cartography at the University of Kentucky</h2>
+    </header>
+    
+    <section class = "project">
+        <a href="maps/lab-06-final.pdf"><img src="images/lab-06-final.png" alt="Maps of Bus Stops in Albuquerque, NM"  class = "project-image"/></a>
+        <h3><a href="maps/lab-06-final.pdf">Map Comparison of Listed Bus Stops in Albuquerque, NM</a></h3>
+        <p>This map shows the differences betweens bus stops in Albuquerque listed within OpenStreetMap and the City of Albuquerque's public website.</p>
+        <p>This map was generated using QGIS 2.10. OpenStreetMap data was harvested using the QuickOSM feature. Common geoprocessing tools such as clips and buffers were also used.</p>
+        <ul>
+            <li>See the map: <a href="maps/lab-06-final.pdf">Bus Stops in Albuquerque</a></li>
+            <li>Data Source: <a href="https://www.cabq.gov/gis/geographic-information-systems-data" />City of Albuquerque Transit Routes and Bus Stops GIS</li>
+        </ul>
+    </section>
+    
+    
+    <section class = "project">
+        <a target = '_blank' href="https://laurenoldham1202.cartodb.com/viz/b2492c7c-a1e6-11e5-8d77-0e3ff518bd15/public_map"><img src="images/lab-10.png" alt="Kentucky Proud Map"  class = "project-image"/></a>
+        <h3><a target = '_blank' href="https://laurenoldham1202.cartodb.com/viz/b2492c7c-a1e6-11e5-8d77-0e3ff518bd15/public_map">Famous Kentuckians and Top Kentucky Tourist Destinations Map</a></h3>
+        <p>This map highlights both famous folks from the Bluegrass and top Kentucky tourist destinations.</p>
+        <p>This map was generated using QGIS 2.10 and CartoDB. Addresses were compiled through various sources and geocoded through the MMQGIS plug-in. Both point data and the choropleth maps were altered utilizing CSS and HTML within CartoDB. Ratios were compiled through the QGIS field calculator.</p>
+        <ul>
+            <li>See the map: <a target = '_blank' href="https://laurenoldham1202.cartodb.com/viz/b2492c7c-a1e6-11e5-8d77-0e3ff518bd15/public_map">Kentucky Proud Map</a></li>
+            <li>Data Source: <a href="https://en.wikipedia.org/wiki/List_of_people_from_Kentucky" />Wikipedia: List of People from Kentucky</li>
+        </ul>
+    </section>
+    
+    
+    <section class = "project">
+        <a target = '_blank' href="#"><img src="images/672-lab-10.png" alt="U.S. Electric Power Generation" class = "project-image"/></a>
+        <h3><a target = '_blank' href="#">U.S. Electric Power Generation Proportional Symbol Map</a></h3>
+        <p>This map displays electric power generation for coal, hydro, and nuclear power plants in the United States.</p>
+        <p>This map was generated using Leaflet. Clicking a location on the map highlights a 500 kilometer buffer around the click point and displays only power plants within that buffer. Clicking on a proportional symbol representing each power plant displays a pop-up window listing the name of the power plant, the amount of power generated, and its distance from the click point. </p>
+        <ul>
+            <li>See the map: <a target = '_blank' href="#">U.S. Electric Power Generation Proportional Symbol Map</a></li>
+            <li>Data Source: <a href="http://www.eia.gov/electricity/data/eia923/" />U.S. Energy Information Administration</li>
+        </ul>
+    </section>
+    
     
 </body>
 </html>
