@@ -162,7 +162,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
     <!-- helpers-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- styles-->
@@ -231,6 +235,7 @@
             z-index: 100;
             position: relative;
             overflow: hidden;
+            transition: 0.3s ease-in-out;
         }
 
         .block-header {
@@ -241,7 +246,14 @@
 
         .block-img {
             height: 100%;
-            opacity: 70%;
+            opacity: 0.7;
+            transition: 0.3s ease-in-out;
+        }
+
+        .text {
+            /*visibility: hidden;*/
+            max-height: 0;
+            overflow: hidden;
         }
 
     </style>
@@ -267,13 +279,15 @@
     <!-- #41059d,#85009b,#bd0094,#ea336f,#ef7546,#f4a065 -->
     <div class="container">
         <div class="row">
-            <div class="block" style="background: #41059d">
+            <div class="block block-1" style="background: #41059d" id="block-1">
                 <div class="block-header">
                     <h2>Hi there! I'm Lauren.</h2>
+<!--                    <span class="text">Hello! I'm Lauren Oldham, soon to be Lauren Jaromczyk (apparently I'm destined to keep a funny-->
+<!--                    last name).</span>-->
                 </div>
             </div>
-            <div class="block" style="background: #85009b">
-                <img src="./images/collage/ursa-event.jpeg" class="block-img">
+            <div class="block block-1" style="background: #85009b">
+                <img src="./images/collage/ursa-event.jpeg" class="block-img" id="block-1-img">
             </div>
             <div class="block" style="background: #9e0099">
                 <div class="block-header">
@@ -300,10 +314,43 @@
 
 </div>
 
-<!-- HTML HERE -->
-
 <script>
-    // SCRIPT HERE
+
+    $('.block-1').on('mouseover', (e) => {
+
+
+        const text = 'Hello! I\'m Lauren Oldham, soon to be Lauren Jaromczyk (can\'t seem to escape my funnily-spelled-last-name curse!).';
+       $('#block-1-img').css('opacity', 1);
+       // $('#block-1').text(text);
+
+        // $('#block-1').fadeOut(() => {
+        //     console.log('l');
+        // });
+
+        // $('#block-1').fadeOut( "slow", function() {
+        //     // Animation complete.
+        // });
+
+        // TODO add and remove class instead?
+        $('#block-1 > .block-header').animate({top: '1rem'}, 500);
+
+        // console.log($('#block-1 > .block-header'));
+        // $('#block-1 > .block-header').append('bloop');
+        // $("#block-1").fadeOut(function() {
+        //     $('#block-1').text("World").fadeIn();
+        // });
+
+        // $('#block-1 > .text').css('max-height', '10rem');
+        // $('span').css('visibility', 'visible');
+    });
+
+    $('.block-1').on('mouseout', () => {
+        // console.log('out');
+       $('#block-1-img').css('opacity', 0.7);
+        $('#block-1 > .block-header').animate({top: 'auto'}, 500);
+
+    });
+
 </script>
 
 </body>
