@@ -240,8 +240,10 @@
 
         .block-header {
             position: absolute;
-            bottom: 1rem;
+            /*bottom: 1rem;*/
             right: 1rem;
+            transition: 0.3s ease-in-out;
+
         }
 
         .block-img {
@@ -254,6 +256,21 @@
             /*visibility: hidden;*/
             max-height: 0;
             overflow: hidden;
+        }
+
+        .bottom {
+            bottom: 1rem;
+        }
+
+        .top {
+            top: 1rem;
+        }
+
+        #block-1 {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
         }
 
     </style>
@@ -282,6 +299,7 @@
             <div class="block block-1" style="background: #41059d" id="block-1">
                 <div class="block-header">
                     <h2>Hi there! I'm Lauren.</h2>
+                    <div class="tmp"></div>
 <!--                    <span class="text">Hello! I'm Lauren Oldham, soon to be Lauren Jaromczyk (apparently I'm destined to keep a funny-->
 <!--                    last name).</span>-->
                 </div>
@@ -310,44 +328,51 @@
             </div>
         </div>
     </div>
-<!--    <img src="./images/collage/collage.png">-->
-
 </div>
 
 <script>
 
+    // $('.block-header').css('bottom', '1rem');
+
+    $('#block-1 > .block-header').addClass('bottom');
+
+
     $('.block-1').on('mouseover', (e) => {
 
+        const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et rhoncus purus, ac pharetra felis. Nam et finibus lectus, vel venenatis est. Quisque sed tincidunt nibh. Curabitur gravida auctor facilisis. Duis vulputate interdum dolor at fermentum. Proin pellentesque est justo, sit amet pellentesque justo pretium ut. Donec orci tortor, congue nec lobortis non, aliquet ut urna. Integer sed lectus massa. Fusce pulvinar est eget tellus lobortis scelerisque.';
 
-        const text = 'Hello! I\'m Lauren Oldham, soon to be Lauren Jaromczyk (can\'t seem to escape my funnily-spelled-last-name curse!).';
-       $('#block-1-img').css('opacity', 1);
-       // $('#block-1').text(text);
 
-        // $('#block-1').fadeOut(() => {
-        //     console.log('l');
-        // });
+        $('#block-1-img').css('opacity', 1);
+        $('#block-1 > .block-header').removeClass('bottom', 500);
 
-        // $('#block-1').fadeOut( "slow", function() {
-        //     // Animation complete.
-        // });
+        $('#block-1 > .block-header').addClass('top', 500);
 
         // TODO add and remove class instead?
-        $('#block-1 > .block-header').animate({top: '1rem'}, 500);
+        // $('#block-1 > .block-header').animate({top: '1rem'}, 500);
+        // $('#block-1 > .block-header').animate({bottom: ''}, 500);
+        // $('#block-1 > .block-header').css('bottom', '').fadeIn();
 
-        // console.log($('#block-1 > .block-header'));
-        // $('#block-1 > .block-header').append('bloop');
-        // $("#block-1").fadeOut(function() {
-        //     $('#block-1').text("World").fadeIn();
+        // $('#block-1 > .block-header > .tmp').text(text).fadeIn();
+
+        // $('#block-1 > .block-header > .tmp').fadeOut(function() {
+        //     $(this).text("World").fadeIn();
         // });
-
-        // $('#block-1 > .text').css('max-height', '10rem');
-        // $('span').css('visibility', 'visible');
     });
 
     $('.block-1').on('mouseout', () => {
         // console.log('out');
        $('#block-1-img').css('opacity', 0.7);
-        $('#block-1 > .block-header').animate({top: 'auto'}, 500);
+
+        $('#block-1 > .block-header').addClass('bottom');
+
+        $('#block-1 > .block-header').removeClass('top');
+        // $('#block-1 > .block-header').css('bottom', '1rem');
+        // $('#block-1 > .block-header').animate({bottom: '1rem'}, 500);
+        // $('#block-1 > .block-header > .tmp').text('').fadeIn();
+
+
+        // $('#block-1 > .block-header').css('top', null);
+        // $('#block-1 > .block-header').animate({top: ''}, 500);
 
     });
 
