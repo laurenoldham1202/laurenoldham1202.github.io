@@ -331,43 +331,20 @@
 
 <script>
 
-    $('.block-1').on('mouseover', (e) => {
-        $('#block-1-img').css('opacity', 1);
-        $('#block-1 > .block-header').css('top', '1rem');
-        $('.text').css('height', 'auto');
+    const blocks = [1, 2, 3];
 
-    });
+    blocks.forEach(block => {
+        $(`.block-${block}`).on('mouseover', (e) => {
+            $(`#block-${block}-img`).css('opacity', 1);
+            $(`#block-${block} > .block-header`).css('top', '1rem');
+            $('.text').css('height', 'auto');
+        });
 
-    $('.block-1').on('mouseout', () => {
-       $('#block-1-img').css('opacity', 0.7);
-        $('#block-1 > .block-header').css('top', '85%');
-        $('.text').css('height', 0);
-    });
-
-    $('.block-2').on('mouseover', (e) => {
-        $('#block-2-img').css('opacity', 1);
-        $('#block-2 > .block-header').css('top', '1rem');
-        $('.text').css('height', 'auto');
-
-    });
-
-    $('.block-2').on('mouseout', () => {
-       $('#block-2-img').css('opacity', 0.7);
-        $('#block-2 > .block-header').css('top', '85%');
-        $('.text').css('height', 0);
-    });
-
-    $('.block-3').on('mouseover', (e) => {
-        $('#block-3-img').css('opacity', 1);
-        $('#block-3 > .block-header').css('top', '1rem');
-        $('.text').css('height', 'auto');
-
-    });
-
-    $('.block-3').on('mouseout', () => {
-       $('#block-3-img').css('opacity', 0.7);
-        $('#block-3 > .block-header').css('top', '85%');
-        $('.text').css('height', 0);
+        $(`.block-${block}`).on('mouseout', () => {
+            $(`#block-${block}-img`).css('opacity', 0.7);
+            $(`#block-${block} > .block-header`).css('top', '85%');
+            $('.text').css('height', 0);
+        });
     });
 
 </script>
