@@ -224,6 +224,7 @@
         }
 
         .container {
+            margin-top: 1rem;
             width: 100%;
             /*padding: 1rem;*/
             /*transition: 0.3s ease-in-out;*/
@@ -253,11 +254,12 @@
 
         .block-img {
             height: 100%;
-            opacity: 0.7;
+            opacity: 0.6;
             transition: 0.3s ease-in-out;
         }
 
-        .doot {
+        .text {
+            margin-top: 1rem;
             position: absolute;
             transition: 0.5s height ease-in-out;
         }
@@ -292,37 +294,35 @@
             <div class="block block-1" style="background: #41059d" id="block-1">
                 <div class="block-header">
                     <h2>Hi there! I'm Lauren.</h2>
-                    <div class="doot" style="height: 0; overflow: hidden">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et rhoncus purus, ac pharetra felis.
-                        HI THERE!
-                        <br>I'M LAUREN!
-                        <br>BLAH BLAH!
+                    <div class="text">
+                        Hello! I'm Lauren Oldham, soon to be Lauren Jaromczyk (apparently I'm destined to have a funny
+                        last name).
+                        <div class="text">I'm a Kentucky native currently residing in upstate New York.</div>
                     </div>
-<!--                    <div class="tmp"></div>-->
-<!--                    <span class="text">Hello! I'm Lauren Oldham, soon to be Lauren Jaromczyk (apparently I'm destined to keep a funny-->
-<!--                    last name).</span>-->
                 </div>
             </div>
             <div class="block block-1" style="background: #85009b">
                 <img src="./images/collage/ursa-event.jpeg" class="block-img" id="block-1-img">
             </div>
-            <div class="block" style="background: #9e0099">
+            <div class="block block-2" style="background: #9e0099" id="block-2">
                 <div class="block-header">
                     <h2>I dabble in geography.</h2>
+                    <div class="text">Personally and professionally!</div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="block" style="background: #c50093">
-                <img src="./images/collage/tci-1.jpg" class="block-img">
+            <div class="block block-3" style="background: #c50093">
+                <img src="./images/collage/tci-1.jpg" class="block-img" id="block-3-img">
             </div>
-            <div class="block" style="background: #e81d7f">
+            <div class="block block-3" style="background: #e81d7f"  id="block-3">
                 <div class="block-header">
                     <h2>I'm also a developer.</h2>
+                    <div class="text">I have been working as a front-end developer.</div>
                 </div>
             </div>
-            <div class="block" style="background: #ed5f4c">
-                <img src="./images/collage/portugal-1.jpg" class="block-img">
+            <div class="block block-2" style="background: #ed5f4c">
+                <img src="./images/collage/portugal-1.jpg" class="block-img" id="block-2-img">
 
             </div>
         </div>
@@ -331,30 +331,43 @@
 
 <script>
 
-    // $('#block-1 > .block-header').addClass('bottom');
-
-
     $('.block-1').on('mouseover', (e) => {
-
-        const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et rhoncus purus, ac pharetra felis. Nam et finibus lectus, vel venenatis est. Quisque sed tincidunt nibh. Curabitur gravida auctor facilisis. Duis vulputate interdum dolor at fermentum. Proin pellentesque est justo, sit amet pellentesque justo pretium ut. Donec orci tortor, congue nec lobortis non, aliquet ut urna. Integer sed lectus massa. Fusce pulvinar est eget tellus lobortis scelerisque.';
-
         $('#block-1-img').css('opacity', 1);
         $('#block-1 > .block-header').css('top', '1rem');
-        $('.doot').css('height', 'auto');
-        // $('.tmp').text(text);
-        // $('#block-1 > .block-header').css('top', '1rem');
-
-        // console.log($('.block-header'));
-        // $('.block-header').css('margin-top', '1rem');
+        $('.text').css('height', 'auto');
 
     });
 
     $('.block-1').on('mouseout', () => {
        $('#block-1-img').css('opacity', 0.7);
         $('#block-1 > .block-header').css('top', '85%');
-        $('.doot').css('height', 0);
+        $('.text').css('height', 0);
+    });
 
+    $('.block-2').on('mouseover', (e) => {
+        $('#block-2-img').css('opacity', 1);
+        $('#block-2 > .block-header').css('top', '1rem');
+        $('.text').css('height', 'auto');
 
+    });
+
+    $('.block-2').on('mouseout', () => {
+       $('#block-2-img').css('opacity', 0.7);
+        $('#block-2 > .block-header').css('top', '85%');
+        $('.text').css('height', 0);
+    });
+
+    $('.block-3').on('mouseover', (e) => {
+        $('#block-3-img').css('opacity', 1);
+        $('#block-3 > .block-header').css('top', '1rem');
+        $('.text').css('height', 'auto');
+
+    });
+
+    $('.block-3').on('mouseout', () => {
+       $('#block-3-img').css('opacity', 0.7);
+        $('#block-3 > .block-header').css('top', '85%');
+        $('.text').css('height', 0);
     });
 
 </script>
