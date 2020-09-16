@@ -98,16 +98,30 @@
             background: #857583;
         }
 
+        .anchor {
+            display: block;
+            position: relative;
+            top: -250px;  /* TODO dynamically set top */
+            visibility: hidden;
+        }
+
+        .tmp {
+            height: 10rem;
+            color: white;
+            background: navy;
+            margin: 20rem;
+        }
+
     </style>
 </head>
 <body>
 <div class="header">
     <div class="toolbar">
-        <a href="#about">about</a>
         <a href="#portfolio">portfolio</a>
-        <a href="">resume</a>
-        <a href="">connect</a>
-        <a href="#gotowhatwedo">click here</a>
+        <a href="#resume">resume</a>
+        <a href="#about">about</a>
+        <a href="#connect">connect</a>
+<!--        <a href="#gotowhatwedo">click here</a>-->
     </div>
 
     <div class="title">-- LAUREN JAROMCZYK --</div>
@@ -120,9 +134,9 @@
 <!--<div class="anchor" id="gotowhatwedo" style="display: block; position: relative; top: -75px; visibility: hidden;"></div> so you can go here using <a href="#gotowhatwedo">click here</a>-->
 
 <div class="main-body">
-    <div class="anchor" id="gotowhatwedo" style="display: block; position: relative; top: -250px; visibility: hidden;">CLICK HERE YAY!!!</div>
+    <div class="anchor" id="portfolio"></div>
 
-    <section id="portfolio">
+<!--    <section id="portfolio">-->
         <div class="x-row">
             <div class="x"></div>
             <div class="x"></div>
@@ -133,22 +147,33 @@
             <div class="x"></div>
             <div class="x"></div>
         </div>
-    </section>
+<!--    </section>-->
 
-    <section id="about">
-        HELLO!
-        <p>this is</p>
-        <p>this is</p>
-        <p>this is</p>
-        <p>this is</p>
-        <p>this is</p>
-        <p>this is</p>
-        <p>this is</p>
-        <p>this is</p>
-        <p>this is</p>
-    </section>
-<!--    <div class="anchor" id="gotowhatwedo" style="display: block; position: relative; top: -75px; visibility: hidden;">CLICK HERE YAY!!!</div>-->
-    bloop doop
+<!--    <section id="about">-->
+<!--        HELLO!-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--        <p>this is</p>-->
+<!--    </section>-->
+<!--&lt;!&ndash;    <div class="anchor" id="gotowhatwedo" style="display: block; position: relative; top: -75px; visibility: hidden;">CLICK HERE YAY!!!</div>&ndash;&gt;-->
+<!--    bloop doop-->
+
+    <div class="anchor" id="resume"></div>
+    <div class="tmp">RESUME</div>
+
+    <div class="anchor" id="about"></div>
+    <div class="tmp">ABOUT</div>
+
+    <div class="anchor" id="connect"></div>
+    <div class="tmp">CONNECT</div>
+
+
 </div>
 
 <script>
