@@ -22,15 +22,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Source+Code+Pro:wght@300;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,400;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,400;1,900&display=swap" rel="stylesheet">
 
     <style>
-        /* blush: C68584, pink: FAD1C9, navy: 1B4778, eggplant: 7D6B92, dark navy: 051636 */
+        /* blush: C68584, pink: FAD1C9, baby blush: F8E1DC, navy: 1B4778, eggplant: 7D6B92, dark navy: 051636 */
 
         body {
             margin: 0;
             padding: 0;
-            background: #FDF4EF;
+            background: #FAEFEC;
             /*font-family: 'Roboto', sans-serif, bold;*/
         }
 
@@ -43,12 +43,11 @@
             top: 0;
             right: 0;
             left: 0;
-            background: #5D695F;  /* 857583
-            /*padding: 0.5rem;*/
+            background: #1B4778;  /* 857583, 5D695F
             /*font-family: 'Quicksand', sans-serif;*/
             font-family: 'Source Code Pro', monospace;
             text-align: center;
-            color: #FDF4EF;
+            color: #F8E1DC;
         }
 
         .title {
@@ -58,17 +57,16 @@
         }
 
         .toolbar {
-            background: #E1D0C6;
+            background: #F8E1DC;
             width: 100%;
             padding: 0.5rem;
-            /*display: flex;*/
             text-transform: uppercase;
         }
 
         .toolbar > a {
             font-weight: 300;
             margin: 0 1rem;
-            color: #5D695F;
+            color: #1B4778;
             text-decoration: none;
         }
 
@@ -78,13 +76,13 @@
 
         .about-blurb {
             font-family: 'Raleway', sans-serif;
+            font-style: italic;
             font-weight: 400;
             white-space: pre;
         }
 
         .main-body {
             width: 100%;
-            /*display: flex;*/
         }
 
         .x-row {
@@ -112,6 +110,32 @@
             margin: 20rem;
         }
 
+        .section {
+            padding: 1rem;
+            /*background: navy;*/
+            margin: 1rem;
+            display: flex;
+        }
+
+        .resume-block {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            width: 50%;
+            height: 20rem;
+            overflow: scroll;
+            background: whitesmoke;
+            margin: 1rem;
+            border: 1px solid #857583;
+        }
+
+        .resume-header {
+            width: 100%;
+            background: #857583;
+            color: #FAEFEC;
+            text-align: center;
+            padding: 1rem;
+        }
+
     </style>
 </head>
 <body>
@@ -121,7 +145,6 @@
         <a href="#resume">resume</a>
         <a href="#about">about</a>
         <a href="#connect">connect</a>
-<!--        <a href="#gotowhatwedo">click here</a>-->
     </div>
 
     <div class="title">-- LAUREN JAROMCZYK --</div>
@@ -131,41 +154,47 @@
     </div>
 </div>
 
-<!--<div class="anchor" id="gotowhatwedo" style="display: block; position: relative; top: -75px; visibility: hidden;"></div> so you can go here using <a href="#gotowhatwedo">click here</a>-->
-
 <div class="main-body">
     <div class="anchor" id="portfolio"></div>
+    <div class="x-row">
+        <div class="x"></div>
+        <div class="x"></div>
+        <div class="x"></div>
+    </div>
+    <div class="x-row">
+        <div class="x"></div>
+        <div class="x"></div>
+        <div class="x"></div>
+    </div>
 
-<!--    <section id="portfolio">-->
-        <div class="x-row">
-            <div class="x"></div>
-            <div class="x"></div>
-            <div class="x"></div>
-        </div>
-        <div class="x-row">
-            <div class="x"></div>
-            <div class="x"></div>
-            <div class="x"></div>
-        </div>
-<!--    </section>-->
-
-<!--    <section id="about">-->
-<!--        HELLO!-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--        <p>this is</p>-->
-<!--    </section>-->
-<!--&lt;!&ndash;    <div class="anchor" id="gotowhatwedo" style="display: block; position: relative; top: -75px; visibility: hidden;">CLICK HERE YAY!!!</div>&ndash;&gt;-->
-<!--    bloop doop-->
 
     <div class="anchor" id="resume"></div>
-    <div class="tmp">RESUME</div>
+    <div class="section">
+        <div class="resume-block">
+            <div class="resume-header">PROFESSIONAL EXPERIENCE</div>
+        </div>
+        <div class="resume-block">
+            <div class="resume-header">EDUCATION</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="resume-block">
+            <div class="resume-header">KEY COMPETENCE</div>
+        </div>
+        <div class="resume-block">
+            <div class="resume-header">FAMILIARITY</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="resume-block">
+            <div class="resume-header">VOLUNTEER AND ORGANIZATIONS</div>
+        </div>
+        <div class="resume-block">
+            <div class="resume-header">AWARDS</div>
+        </div>
+    </div>
 
     <div class="anchor" id="about"></div>
     <div class="tmp">ABOUT</div>
