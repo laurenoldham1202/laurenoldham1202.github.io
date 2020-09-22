@@ -149,7 +149,24 @@
         /*}*/
 
         .v {
-            height: 3rem;
+            height: 4rem;
+            line-height: 2rem;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.4);
+            transition: 0.3s ease-in-out;
+        }
+
+        .v:hover {
+            color: rgba(0, 0, 0, 0.75);
+            /*font-size: 2rem;*/
+            /*line-height: 2rem;*/
+
+        }
+
+        .active {
+            /*color:red;*/
+            color: rgba(0, 0, 0, 1);
+            font-size: 2rem;
         }
 
     </style>
@@ -222,12 +239,12 @@
 
         <div class="c" style="background: whitesmoke; padding: 3rem 1rem; color: #222; width: 50%; margin: 2rem; font-family: 'Roboto Slab', serif; font-size: 1.5rem;">
             <div class="v">Professional Experience</div>
-            <div class="v">Professional Experience</div>
-            <div class="v">Professional Experience</div>
-            <div class="v">Professional Experience</div>
-            <div class="v">Professional Experience</div>
+            <div class="v">Education</div>
+            <div class="v">Key Competence</div>
+            <div class="v">Volunteer and Organizations</div>
+            <div class="v">Awards</div>
         </div>
-        <div class="c" style="background: yellow; padding: 3rem 1rem; color: #222; width: 50%; margin-left: -5rem; font-family: 'Roboto Slab', serif; font-size: 1.5rem;"></div>
+        <div class="d" style="background: #DDD; padding: 3rem 1rem; color: #222; width: 50%; margin-left: -5rem; font-family: 'Roboto Slab', serif; font-size: 1.5rem;"></div>
 
 
         <!--        <div class="t" style="width: 50%; height: 35rem; background: gray; padding: 1.5rem">-->
@@ -244,7 +261,23 @@
 </div>
 
 <script>
+    resumeMap = {
+        'Professional Experience': 'profesh',
+        'Education': 'education',
+        'Key Competence': 'keyz',
+        'Volunteer and Organizations': 'org',
+        'Awards': 'winna',
+    };
+
     // SCRIPT HERE
+    $('.v').on('click', (e) => {
+        console.log(e.target.innerText);
+        $('.v').removeClass('active');
+        $(e.target).addClass('active');
+
+        $('.d').text(resumeMap[e.target.innerText]);
+
+    })
 </script>
 
 </body>
