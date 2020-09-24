@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- fonts -->
@@ -40,13 +41,19 @@
             padding: 1rem;
         }
 
-        .tmp >  a {
+        .toolbar {
+            width: auto;
+            border-bottom: 1px #BF135E solid;
+            padding-bottom: 1rem;
+        }
+
+        .toolbar >  a {
             font-family: 'Open Sans', sans-serif;
             color: #BF135E;
             margin: 1rem;
         }
 
-        .tmp >  a:hover {
+        .toolbar >  a:hover {
             text-decoration: none;
         }
 
@@ -61,7 +68,7 @@
         }
 
         .project-container {
-            padding: 2rem 8rem;
+            padding: 2rem 8rem 5rem 8rem;
         }
 
         .project-row {
@@ -78,7 +85,7 @@
         .project-img {
             width: 100%;
             height: 80%;
-            background: #BF135E;
+            background: #E9C9D7;
         }
 
         .project-title {
@@ -86,7 +93,39 @@
             margin: 0.5rem 0;
             font-weight: 700;
             font-size: 1.25rem;
+        }
 
+        .resume-bg {
+            background: #BF135E;
+            height: 25rem;
+            width: 100%;
+            padding-top: 5rem;
+        }
+
+        .resume-header {
+            background: #000;
+            width: 50%;
+            margin: -8rem auto;
+            display: flex;
+            justify-content: center;
+            font-family: 'Homemade Apple', cursive;
+            font-size: 2.5rem;
+            line-height: 6rem;
+            height: 6rem;
+            color: whitesmoke;
+        }
+
+        .resume-block {
+            width: 20%;
+            cursor: pointer;
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        .material-icons {
+            height: 40px;
+            width: 40px;
+            font-size: 40px;
         }
 
     </style>
@@ -94,9 +133,9 @@
 <body>
 
 <div class="header center">
-    <div class="tmp" style="width: auto; border-bottom: 1px #BF135E solid; padding-bottom: 1rem;">
+    <div class="toolbar">
     <a href="">portfolio </a>
-    <a href="">resume </a>
+    <a href="">résumé </a>
     <a href="">about </a>
     <a href="">connect </a>
     </div>
@@ -133,6 +172,30 @@
             <div class="project-title">project 6</div>
         </div>
     </div>
+</div>
+
+<div class="resume-bg">
+    <div class="resume-header">résumé</div>
+
+    <div class="resume-icons" style="width: 100%; display: flex; margin-top: 10rem;">
+        <div class="resume-block">
+            <span class="material-icons">list</span>
+        </div>
+
+        <div class="resume-block">
+            <span class="material-icons">school</span>
+        </div>
+        <div class="resume-block">
+            <span class="material-icons">work_outline</span>
+        </div>
+        <div class="resume-block">
+            <span class="material-icons">people_outline</span>
+        </div>
+        <div class="resume-block">
+            <span class="material-icons">emoji_events</span>
+        </div>
+    </div>
+
 </div>
 <script>
     // SCRIPT HERE
