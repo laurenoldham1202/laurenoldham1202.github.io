@@ -221,6 +221,8 @@
     <div class="resume-text" style="padding: 3rem; color: #E9C9D7">
         hello
     </div>
+
+    <a href="resume.html">resume</a>
 </div>
 <script>
 
@@ -230,13 +232,14 @@
         skills: 'skills',
         volunteer: 'volunteer',
         awards: 'awards',
-    }
+    };
 
-    $('.resume-block').one('click', (e) => {
+    $('.resume-block').on('click', (e) => {
         console.log(e.target.parentElement.id);
         $('.resume-text').text(resumeMap[e.target.parentElement.id]);
-        $(e.target).append(`<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>`)
+        $(e.target).append(`<!--<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>-->`)
     });
+
 
 </script>
 
