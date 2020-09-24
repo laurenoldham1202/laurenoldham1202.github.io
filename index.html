@@ -29,6 +29,7 @@
             margin: 0;
             padding: 0;
             background: whitesmoke;
+            font-family: 'Open Sans', sans-serif;
             /*font-family: 'Roboto', sans-serif, bold;*/
         }
 
@@ -119,13 +120,30 @@
             width: 20%;
             cursor: pointer;
             text-align: center;
-            color: whitesmoke;
+        }
+
+        .resume-block-text {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            font-family: 'Lora', serif;
+            /*color: #E9C9D7;*/
         }
 
         .material-icons {
-            height: 40px;
-            width: 40px;
+            color: #000;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
             font-size: 40px;
+            background: #E9C9D7;
+            /*border: 2px solid white;*/
+            border-radius: 100px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .material-icons:hover {
+            color: #E9C9D7;
+            background: #000;
         }
 
     </style>
@@ -178,27 +196,48 @@
     <div class="resume-header">résumé</div>
 
     <div class="resume-icons" style="width: 100%; display: flex; margin-top: 10rem;">
-        <div class="resume-block">
-            <span class="material-icons">list</span>
+        <div class="resume-block" id="professional">
+            <div class="material-icons">list</div>
+            <div class="resume-block-text">professional</div>
         </div>
-
-        <div class="resume-block">
+        <div class="resume-block" id="education">
             <span class="material-icons">school</span>
+            <div class="resume-block-text">education</div>
         </div>
-        <div class="resume-block">
+        <div class="resume-block" id="skills">
             <span class="material-icons">work_outline</span>
+            <div class="resume-block-text">skills</div>
         </div>
-        <div class="resume-block">
+        <div class="resume-block" id="volunteer">
             <span class="material-icons">people_outline</span>
+            <div class="resume-block-text">volunteer</div>
         </div>
-        <div class="resume-block">
+        <div class="resume-block" id="awards">
             <span class="material-icons">emoji_events</span>
+            <div class="resume-block-text">awards</div>
         </div>
     </div>
 
+    <div class="resume-text" style="padding: 3rem; color: #E9C9D7">
+        hello
+    </div>
 </div>
 <script>
-    // SCRIPT HERE
+
+    resumeMap = {
+        professional: 'professional',
+        education: 'education',
+        skills: 'skills',
+        volunteer: 'volunteer',
+        awards: 'awards',
+    }
+
+    $('.resume-block').one('click', (e) => {
+        console.log(e.target.parentElement.id);
+        $('.resume-text').text(resumeMap[e.target.parentElement.id]);
+        $(e.target).append(`<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>`)
+    });
+
 </script>
 
 </body>
