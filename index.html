@@ -98,7 +98,7 @@
 
         .resume-bg {
             background: #BF135E;
-            height: 25rem;
+            /*height: 25rem;*/
             width: 100%;
             padding-top: 5rem;
         }
@@ -144,6 +144,21 @@
         .material-icons:hover {
             color: #E9C9D7;
             background: #000;
+        }
+
+        .active-icon {
+            color: #E9C9D7;
+            background: #000;
+        }
+
+        .v {
+            /*border: 1px solid whitesmoke;*/
+            padding: 1rem;
+            width: 33%;
+            margin: 1rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
         }
 
     </style>
@@ -218,16 +233,34 @@
         </div>
     </div>
 
-    <div class="resume-text" style="padding: 3rem; color: #E9C9D7">
-        hello
+    <div class="resume-text" style="padding: 1.5rem; color: #E9C9D7; display: flex; width: 90%; border-top: 1px solid whitesmoke; margin: 3rem auto; justify-content: center;">
+
+
+<!--        hello-->
+
+        <div class="v">
+            <div class="resume-block-text">Front-End UI Developer</div>
+            <em>Ursa Space Systems - Ithaca, NY</em>
+            April 2018 - present
+        </div>
+        <div class="v">
+            <div class="resume-block-text">GIS Developer</div>
+            <em>Global Parametrics - Lexington, KY</em>
+            June 2015 - April 2018
+        </div>
+        <div class="v">
+            <div class="resume-block-text">GIS Technical Intern</div>
+            <em>Sandia National Laboratories</em>
+            May 2013 - August 2013
+        </div>
     </div>
 
-    <a href="resume.html">resume</a>
+<!--    <a href="resume.html">resume</a>-->
 </div>
 <script>
 
     resumeMap = {
-        professional: 'professional',
+        professional: 'I\'m a self-taught software developer who is well-versed in the world of startups.',
         education: 'education',
         skills: 'skills',
         volunteer: 'volunteer',
@@ -235,9 +268,12 @@
     };
 
     $('.resume-block').on('click', (e) => {
-        console.log(e.target.parentElement.id);
+        // console.log(e.target.parentElement.id);
         $('.resume-text').text(resumeMap[e.target.parentElement.id]);
         $(e.target).append(`<!--<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>-->`)
+        console.log(e);
+        $('.material-icons').removeClass('active-icon');
+        $(e.currentTarget.children[0]).addClass('active-icon');
     });
 
 
