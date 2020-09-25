@@ -233,11 +233,9 @@
         </div>
     </div>
 
-    <div class="resume-text" style="padding: 1.5rem; color: #E9C9D7; display: flex; width: 90%; border-top: 1px solid whitesmoke; margin: 3rem auto; justify-content: center;">
+    <div class="resume-text" style="padding: 1.5rem; color: #E9C9D7; width: 90%; border-top: 1px solid whitesmoke; margin: 3rem auto; justify-content: center;">
 
-
-<!--        hello-->
-
+        <div class="resume-professional" style="width: 100%; display: flex; max-height: 0; overflow: hidden;">
         <div class="v">
             <div class="resume-block-text">Front-End UI Developer</div>
             <em>Ursa Space Systems - Ithaca, NY</em>
@@ -253,7 +251,12 @@
             <em>Sandia National Laboratories</em>
             May 2013 - August 2013
         </div>
-    </div>
+        </div>
+
+        <div class="resume-education" style="width: 100%; display: flex; max-height: 0; overflow: hidden;">
+            <div class="b">MSc in Digital Mapping</div>
+            <div class="b">BA in Geography</div>
+        </div>
 
 <!--    <a href="resume.html">resume</a>-->
 </div>
@@ -269,11 +272,26 @@
 
     $('.resume-block').on('click', (e) => {
         // console.log(e.target.parentElement.id);
-        $('.resume-text').text(resumeMap[e.target.parentElement.id]);
-        $(e.target).append(`<!--<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>-->`)
-        console.log(e);
+        const id = e.target.parentElement.id;
+        // $('.resume-text').text(resumeMap[id]);
+        // $(e.target).append(`<!--<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>-->`)
         $('.material-icons').removeClass('active-icon');
         $(e.currentTarget.children[0]).addClass('active-icon');
+        console.log(`.resume-${id}`);
+        console.log($(`.resume-${id}`));
+
+        Object.keys(resumeMap).forEach(key => {
+           if (key === id) {
+
+               $(`.resume-${id}`).css('max-height', '20rem');
+               $(`.resume-${id}`).css('overflow', 'visible');
+           } else {
+               console.log(`resume-${key}`);
+               $(`.resume-${key}`).css('max-height', '0');
+               $(`.resume-${key}`).css('overflow', 'hidden');
+           }
+        });
+
     });
 
 
