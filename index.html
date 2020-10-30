@@ -76,7 +76,6 @@
             text-align: center;
             background: #BF135E;
             color: whitesmoke;
-            /*width: 20rem;*/
             margin: 2rem 20rem 0 20rem;
         }
 
@@ -96,6 +95,16 @@
             margin: 1rem;
             background: white;
             cursor: pointer;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #000;
+            text-decoration: none;
         }
 
         .project-img {
@@ -259,15 +268,16 @@
     <p>Some things might look a little sparse or out of place right now, but more updates are coming soon!</p>
 </div>
 
+<!-- TODO: BUG- Mousing over project title needs to adjust img opacity -->
 <div class="project-container">
     <div class="project-row">
-        <div class="project">
+        <a class="project" href="https://laurenoldham1202.github.io/mens-college-basketball/" target="_blank">
             <div class="project-img">
                 <img src="./images/projects/bball1.png" class="project-thumbnail">
             </div>
             <div class="project-title">Going the Distance</div>
             Men's College Basketball Travel Distance Analysis
-        </div>
+        </a>
         <div class="project">
             <div class="project-img">
                 <img src="./images/projects/colonizability.png" class="project-thumbnail">
