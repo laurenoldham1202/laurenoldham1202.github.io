@@ -97,6 +97,10 @@
             cursor: pointer;
         }
 
+        .unavailable {
+            cursor: not-allowed;
+        }
+
         a {
             color: #000;
             text-decoration: none;
@@ -137,6 +141,7 @@
             /*height: 25rem;*/
             width: 100%;
             padding-top: 5rem;
+            padding-bottom: 1rem;
         }
 
         .resume-header {
@@ -218,6 +223,7 @@
             background: whitesmoke;
             width: 100%;
             display: flex;
+            padding-bottom: 5rem;
         }
 
         .about-photo {
@@ -246,6 +252,14 @@
         .about-text {
             font-size: 1.25rem;
             line-height: 1.5rem;
+        }
+
+        .footer {
+            background: #000;
+            color: whitesmoke;
+            display: flex;
+            padding-top: 5rem;
+            width: 100%;
         }
 
     </style>
@@ -278,37 +292,37 @@
             <div class="project-title">Going the Distance</div>
             Men's College Basketball Travel Distance Analysis
         </a>
-        <div class="project">
+        <a class="project" href="https://laurenoldham1202.github.io/africa-colonizability/" target="_blank">
             <div class="project-img">
                 <img src="./images/projects/colonizability.png" class="project-thumbnail">
             </div>
             <div class="project-title">Colonizability of Africa</div>
             Analysis of Digitized Map from 1899
-        </div>
-        <div class="project">
+        </a>
+        <a class="project" href="https://laurenoldham1202.github.io/african-conflicts/" target="_blank">
             <div class="project-img">
                 <img src="./images/projects/african-conflict.png" class="project-thumbnail">
             </div>
             <div class="project-title">African Conflict</div>
             Data Visualization of Conflicts in 2018
-        </div>
+        </a>
     </div>
     <div class="project-row">
-        <div class="project">
+        <a class="project" href="http://laurenoldham1202.github.io/magic-ethiopia/" target="_blank">
             <div class="project-img">
                 <img src="./images/projects/magic2.png" class="project-thumbnail">
             </div>
             <div class="project-title">Ethiopia Crop Calendar Index</div>
             Drought Exposure Tool in Ethiopia
-        </div>
-        <div class="project">
+        </a>
+        <div class="project unavailable">
             <div class="project-img">
                 <img src="./images/projects/ufo2.png" class="project-thumbnail">
             </div>
             <div class="project-title">We Come in Peace!</div>
             US UFO Sightings and Military Installations
         </div>
-        <div class="project">
+        <div class="project unavailable">
             <div class="project-img">
                 <img src="./images/projects/fingerlakes.png" class="project-thumbnail">
             </div>
@@ -367,32 +381,39 @@
             <em>Sandia National Laboratories</em>
             May 2013 - August 2013
         </div>
-
     </div>
+</div>
 
-    <div class="about">
-        <div class="about-block">
-            <img src="./images/about/sedona.jpg" class="about-photo">
+<div class="about">
+    <div class="about-block">
+        <img src="./images/about/sedona.jpg" class="about-photo">
+    </div>
+    <div class="about-block">
+        <div class="about-header">hi there!</div>
+        <div class="about-text">
+            <p>
+                I'm Lauren Jaromczyk, formerly Oldham (apparently I'm destined to have a funny-sounding last name).
+                I'm a Kentucky-native who is still learning to survive winters in my new home base in upstate New York.
+            </p>
+            <p>
+                My career passion lies at the intersection of technology and social sciences, primarily focusing on
+                geography and geospatial data. I currently work as a front-end UI developer and have a wealth of experience
+                building data-driven web applications. Enriching data science with usable, slick, and fun data
+                visualizations is what excites and motivates me most in my career.
+            </p>
+            <p>
+                When I'm not working, I enjoy the great outdoors with day hikes and birdwatching. When stuck inside
+                for half the year, I read, bake, do yoga, and binge watch the same 6 TV shows on repeat.
+            </p>
         </div>
-        <div class="about-block">
-            <div class="about-header">hi there!</div>
-            <div class="about-text">
-                <p>
-                    I'm Lauren Jaromczyk, formerly Oldham (apparently I'm destined to have a funny-sounding last name).
-                    I'm a Kentucky-native who is still learning to survive winters in my new home base in upstate New York.
-                </p>
-                <p>
-                    My career passion lies at the intersection of technology and social sciences, primarily focusing on
-                    geography and geospatial data. I currently work as a front-end UI developer and have a wealth of experience
-                    building data-driven web applications. Enriching data science with usable, slick, and fun data
-                    visualizations is what excites and motivates me most in my career.
-                </p>
-                <p>
-                    When I'm not working, I enjoy the great outdoors with day hikes and birdwatching. When stuck inside
-                    for half the year, I read, bake, do yoga, and binge watch the same 6 TV shows on repeat.
-                </p>
-            </div>
-        </div>
+    </div>
+</div>
+
+<!-- TODO Make these classes generic -->
+<div class="resume-bg" style="background: #000 !important;">
+    <div class="resume-header" style="background: #BF135E !important;">connect</div>
+    <div class="resume-icon-row">
+        Site designed by me.
     </div>
 <script>
 
@@ -497,12 +518,14 @@
                $(`.resume-${id}`).css('max-height', '20rem');
                $(`.resume-${id}`).css('overflow', 'visible');
            } else {
-               console.log(`resume-${key}`);
                $(`.resume-${key}`).css('max-height', '0');
                $(`.resume-${key}`).css('overflow', 'hidden');
            }
         });
+    });
 
+    $('.unavailable').on('mouseover', () => {
+       // TODO Add currently unavailable message
     });
 
 
