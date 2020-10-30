@@ -96,7 +96,6 @@
             margin: 1rem;
             background: white;
             cursor: pointer;
-            /*transition: 0.7s ease-in-out;*/
         }
 
         .project-img {
@@ -104,13 +103,11 @@
             height: 80%;
             background: #E9C9D7;
             overflow: hidden;
-            /*transition: 0.7s ease-in-out;*/
-
         }
 
         .project-thumbnail {
             height: 100%;
-            opacity: 0.7;
+            opacity: 0.5;
             transition: 0.3s ease-in-out;
 
         }
@@ -157,7 +154,6 @@
             margin: 1rem 0 0.5rem 0;
             font-size: 1.25rem;
             font-family: 'Lora', serif;
-            /*color: #E9C9D7;*/
         }
 
         .resume-icon {
@@ -167,9 +163,14 @@
             line-height: 80px;
             font-size: 40px;
             background: #E9C9D7;
-            /*border: 2px solid white;*/
             border-radius: 100px;
             transition: 0.3s ease-in-out;
+        }
+
+        .resume-icon-row {
+            width: 100%;
+            display: flex;
+            margin-top: 10rem;
         }
 
         .resume-icon:hover {
@@ -182,25 +183,42 @@
             background: #000;
         }
 
-        .v {
-            /*border: 1px solid whitesmoke;*/
-            /*padding: 1rem;*/
+        .resume-info {
+            background: #E9C9D7;
+            width: 90%;
+            margin: 3rem auto;
+            height: 16rem;
+            overflow: auto;
+            color: #BF135E;
+            padding: 1.5rem;
+            line-height: 1.5rem;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .resume-info-item {
             width: 33%;
             margin: 1rem;
-            /*height: 10rem;*/
             display: flex;
             flex-direction: column;
         }
 
+        .about {
+            background: whitesmoke;
+            width: 100%;
+            display: flex;
+        }
+
         .about-photo {
-            width: 40%;
-            margin: 5rem;
+            /*width: 40%;*/
+            /*margin: 5rem;*/
+            width: 100%;
         }
 
         .about-header {
             background: #E9C9D7;
-            /*width: 50%;*/
-            /*margin: -8rem auto;*/
             display: flex;
             justify-content: center;
             font-family: 'Homemade Apple', cursive;
@@ -208,11 +226,17 @@
             line-height: 6rem;
             height: 6rem;
             color: #000;
+            margin-bottom: 1rem;
         }
 
         .about-block {
             width: 50%;
             margin: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.25rem;
+            line-height: 1.5rem;
         }
 
     </style>
@@ -231,8 +255,8 @@
 <div class="subheader center">lauren jaromczyk</div>
 
 <div class="warning">
-    <p><span class="material-icons">warning</span> Site is currently under construction! <span class="material-icons">warning</span></p>
-    <p>Some things might be a little out of place for a while, but more updates are coming soon!</p>
+    <p><span class="material-icons">warning</span> UNDER CONSTRUCTION <span class="material-icons">warning</span></p>
+    <p>Some things might look a little sparse or out of place right now, but more updates are coming soon!</p>
 </div>
 
 <div class="project-container">
@@ -284,9 +308,10 @@
     </div>
 </div>
 
+<!-- TODO BUG: Click resume-block div highlights icon, but only clicking icon directly selects resume element -->
 <div class="resume-bg">
     <div class="resume-header">résumé</div>
-    <div class="resume-icons" style="width: 100%; display: flex; margin-top: 10rem;">
+    <div class="resume-icon-row">
         <div class="resume-block" id="professional">
 <!--            <div class="material-icons">web</div>-->
 <!--            <div class="resume-block-text">software</div>-->
@@ -315,26 +340,19 @@
 <!--        </div>-->
     </div>
 
-    <div class="tmp" style="background: #E9C9D7; width: 90%; margin: 3rem auto; height: 16rem; overflow: auto; color: #BF135E;
-     padding: 1.5rem; line-height: 1.5rem; font-size: 1rem; display: flex; justify-content: center; text-align: center;">
-<!--        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
-<!--        standard dummy text ever since the 1500s,-->
-<!--        when an unknown printer took a galley of type and scrambled it to make a type specimen book.-->
-<!--        It has survived not only five centuries, but also the leap into electronic typesetting,-->
-<!--        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets-->
-<!--        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker-->
-<!--        including versions of Lorem Ipsum.-->
-        <div class="v">
+    <div class="resume-info">
+        <!-- TODO Add generic about info instead of defaulting to professional experience-->
+        <div class="resume-info-item">
             <div class="resume-block-text">Front-End UI Developer</div>
             <em>Ursa Space Systems - Ithaca, NY</em>
             April 2018 - present
         </div>
-        <div class="v">
+        <div class="resume-info-item">
             <div class="resume-block-text">GIS Developer</div>
             <em>Global Parametrics - Lexington, KY</em>
             June 2015 - April 2018
         </div>
-        <div class="v">
+        <div class="resume-info-item">
             <div class="resume-block-text">GIS Technical Intern</div>
             <em>Sandia National Laboratories</em>
             May 2013 - August 2013
@@ -342,32 +360,44 @@
 
     </div>
 
-    <div class="about" style="background: whitesmoke; width: 100%; display: flex;">
+    <div class="about">
         <div class="about-block">
-            <img src="./images/about/sedona.jpg" alt="" class="about-photo">
+            <img src="./images/about/sedona.jpg" class="about-photo">
         </div>
         <div class="about-block">
             <div class="about-header">hi there!</div>
             <div class="about-text">
-                I'm Lauren Jaromczyk, formerly Oldham (apparently I'm destined to have a funny-sounding last name).
-                I'm a Kentucky-native who is still learning to survive winters in my new home base in upstate New York.
+                <p>
+                    I'm Lauren Jaromczyk, formerly Oldham (apparently I'm destined to have a funny-sounding last name).
+                    I'm a Kentucky-native who is still learning to survive winters in my new home base in upstate New York.
+                </p>
+                <p>
+                    My career passion lies at the intersection of technology and social sciences, primarily focusing on
+                    geography and geospatial data. I currently work as a front-end UI developer and have a wealth of experience
+                    building data-driven web applications. Enriching data science with usable, slick, and fun data
+                    visualizations is what excites and motivates me most in my career.
+                </p>
+                <p>
+                    When I'm not working, I enjoy the great outdoors with day hikes and birdwatching. When stuck inside
+                    for half the year, I read, bake, do yoga, and binge watch the same 6 TV shows on repeat.
+                </p>
             </div>
         </div>
     </div>
 <script>
 
     contentProfessional = `
-        <div class="v">
+        <div class="resume-info-item">
             <div class="resume-block-text">Front-End UI Developer</div>
             <em>Ursa Space Systems - Ithaca, NY</em>
             April 2018 - present
         </div>
-        <div class="v">
+        <div class="resume-info-item">
             <div class="resume-block-text">GIS Developer</div>
             <em>Global Parametrics - Lexington, KY</em>
             June 2015 - April 2018
         </div>
-        <div class="v">
+        <div class="resume-info-item">
             <div class="resume-block-text">GIS Technical Intern</div>
             <em>Sandia National Laboratories</em>
             May 2013 - August 2013
@@ -375,12 +405,12 @@
     `;
 
     contentEducation = `
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">Master of Science in Digital Mapping</div>
   <em>University of Kentucky</em>
   2019-2020
 </div>
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">Bachelor of Arts in Geography</div>
   <em>University of Kentucky</em>
   2010-2014
@@ -390,7 +420,7 @@
 
     // TODO Add python, jupyter notebooks
     contentSkills = `
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">GIS and Digital Mapping</div>
   MapboxGL and Mapbox Studio
   <br>Leaflet
@@ -398,7 +428,7 @@
   <br>Spatial Analysis
   <br>Interactive web mapping
 </div>
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">Tech</div>
   Javascript, Typescript
   <br>Angular
@@ -406,7 +436,7 @@
   <br>Material, Bootstrap
   <br>R, Shiny
 </div>
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">Software Development</div>
   Scrum
   <br>Git
@@ -418,16 +448,16 @@
     `;
 
     contentVolunteer = `
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">2019</div>
   Moderated Women in Tech and Entrepreneurship Panel
   <br>Volunteered for Caroline Elementary STEAM Night
 </div>
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">2018</div>
   Organized Ithaca Girls in STEAM event
 </div>
-<div class="v">
+<div class="resume-info-item">
   <div class="resume-block-text">2017</div>
   Presenter and panelist for University of Kentucky Women in Engineering Summer Workshop Series
 </div>
@@ -446,7 +476,7 @@
         // console.log(e.target.parentElement.id);
         const id = e.target.parentElement.id;
         // $('.resume-text').text(resumeMap[id]);
-        $('.tmp').html(resumeMap[id]);
+        $('.resume-info').html(resumeMap[id]);
         // $(e.target).append(`<!--<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>-->`)
         $('.material-icons').removeClass('active-icon');
         $(e.currentTarget.children[0]).addClass('active-icon');
