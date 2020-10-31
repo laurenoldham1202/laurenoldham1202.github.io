@@ -266,7 +266,7 @@
 
         .fa-lg {
             cursor: pointer;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
             background: #E9C9D7;
             color: #000;
             padding: 0.75rem;
@@ -277,6 +277,20 @@
         .fa-lg:hover {
             background: #BF135E;
             color: whitesmoke;
+        }
+
+        .footer-item {
+            width: 33%;
+        }
+
+        a.footer-link {
+            cursor: pointer;
+            color: whitesmoke;
+            transition: 0.3s ease-in-out;
+        }
+
+        a.footer-link:hover {
+            color: #BF135E;
         }
 
     </style>
@@ -429,17 +443,21 @@
 <!-- TODO Make these classes generic -->
 <div class="resume-bg" style="background: #000 !important;">
     <div class="resume-header" style="background: #BF135E !important;">connect</div>
-    <div class="resume-icon-row" style="padding: 1rem 2rem; color: whitesmoke; justify-content: space-between;">
-        Site designed by me.
-        <div style="display: flex;">
-            <i class="fa fa-linkedin fa-lg"></i>
-            <i class="fa fa-stack-overflow fa-lg"></i>
-            <i class="fa fa-stack-exchange fa-lg"></i>
-            <i class="fa fa-github fa-lg"></i>
-
+    <div class="resume-icon-row" style="padding: 1rem 2rem; color: whitesmoke;">
+        <div class="footer-item">
+            Updated October 2020.
         </div>
-        <div>buttons here</div>
+        <div class="footer-item" style="text-align: center;">
+            <a href="https://www.linkedin.com/in/lauren-oldham/" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+            <a href="https://stackoverflow.com/users/5775267/lauren" target="_blank"><i class="fa fa-stack-overflow fa-lg"></i></a>
+            <a href="https://gis.stackexchange.com/users/54986/lauren" target="_blank"><i class="fa fa-stack-exchange fa-lg"></i></a>
+            <a href="https://github.com/laurenoldham1202/" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+        </div>
+        <div class="footer-item" style="text-align: right;">
+            <a href="mailto:laurenoldham1202@gmail.com" class="footer-link">laurenoldham1202@gmail.com</a>
+        </div>
     </div>
+</div>
 
 <script>
 
