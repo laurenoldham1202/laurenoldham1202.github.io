@@ -34,6 +34,10 @@
             /*font-family: 'Roboto', sans-serif, bold;*/
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         .header {
             position: sticky;
             top: 0;
@@ -54,6 +58,7 @@
             font-family: 'Open Sans', sans-serif;
             color: #BF135E;
             margin: 1rem;
+            transition: 0.3s ease-in-out;
         }
 
         .toolbar >  a:hover {
@@ -68,6 +73,13 @@
         .subheader {
             font-family: 'Homemade Apple', cursive;
             font-size: 4rem;
+        }
+
+        .anchor {
+            display: block;
+            position: relative;
+            top: -70px;
+            visibility: hidden;
         }
 
         .warning {
@@ -92,7 +104,7 @@
         .project {
             height: 25rem;
             width: 33%;
-            max-width: 30rem;
+            max-width: 27rem;
             margin: 1rem;
             background: white;
             cursor: pointer;
@@ -299,10 +311,10 @@
 
 <div class="header center">
     <div class="toolbar">
-    <a href="">portfolio </a>
-    <a href="">résumé </a>
-    <a href="">about </a>
-    <a href="">connect </a>
+    <a href="#portfolio">portfolio </a>
+    <a href="#resume">résumé </a>
+    <a href="#about">about </a>
+    <a href="#connect">connect </a>
     </div>
 </div>
 
@@ -312,6 +324,9 @@
     <p><span class="material-icons">warning</span> UNDER CONSTRUCTION <span class="material-icons">warning</span></p>
     <p>Some things might look a little sparse or out of place right now, but more updates are coming soon!</p>
 </div>
+
+<!-- TODO: Style toolbar links when scrolling through page with active section -->
+<div class="anchor" id="portfolio"></div>
 
 <!-- TODO: BUG- Mousing over project title needs to adjust img opacity -->
 <div class="project-container">
@@ -362,6 +377,8 @@
         </div>
     </div>
 </div>
+
+<div class="anchor" id="resume" style="top: -125px !important;"></div>
 
 <!-- TODO BUG: Click resume-block div highlights icon, but only clicking icon directly selects resume element -->
 <div class="resume-bg">
@@ -415,6 +432,7 @@
     </div>
 </div>
 
+<div class="anchor" id="about"></div>
 <div class="about">
     <div class="about-block">
         <img src="./images/about/sedona.jpg" class="about-photo">
@@ -439,6 +457,8 @@
         </div>
     </div>
 </div>
+
+<div class="anchor" id="connect"></div>
 
 <!-- TODO Make these classes generic -->
 <div class="resume-bg" style="background: #000 !important;">
