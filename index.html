@@ -6,11 +6,8 @@
 
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
     <!-- helpers-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- styles-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,575 +22,355 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Lora:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: whitesmoke;
-            font-family: 'Open Sans', sans-serif;
-            /*font-family: 'Roboto', sans-serif, bold;*/
-        }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .header {
-            position: sticky;
-            top: 0;
-            right: 0;
-            left: 0;
-            background: whitesmoke;
-            padding: 1rem;
-            z-index: 1000;
-        }
-
-        .toolbar {
-            width: auto;
-            border-bottom: 1px #BF135E solid;
-            padding-bottom: 1rem;
-        }
-
-        .toolbar >  a {
-            font-family: 'Open Sans', sans-serif;
-            color: #BF135E;
-            margin: 1rem;
-            transition: 0.3s ease-in-out;
-        }
-
-        .toolbar >  a:hover {
-            text-decoration: none;
-        }
-
-        .center {
-            display: flex;
-            justify-content: center;
-        }
-
-        .subheader {
-            font-family: 'Homemade Apple', cursive;
-            font-size: 4rem;
-        }
-
-        .anchor {
-            display: block;
-            position: relative;
-            top: -70px;
-            visibility: hidden;
-        }
-
-        .warning {
-            justify-content: center;
-            padding: 1rem;
-            /*display: flex;*/
-            text-align: center;
-            background: #BF135E;
-            color: whitesmoke;
-            margin: 2rem 20rem 0 20rem;
-        }
-
-        .project-container {
-            padding: 2rem 8rem 5rem 8rem;
-        }
-
-        .project-row {
-            display: flex;
-            justify-content: center;
-        }
-
-        .project {
-            height: 25rem;
-            width: 33%;
-            max-width: 27rem;
-            margin: 1rem;
-            background: white;
-            cursor: pointer;
-        }
-
-        .unavailable {
-            cursor: not-allowed;
-        }
-
-        a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .project-img {
-            width: 100%;
-            height: 80%;
-            background: #E9C9D7;
-            overflow: hidden;
-        }
-
-        .project-thumbnail {
-            height: 100%;
-            opacity: 0.5;
-            transition: 0.3s ease-in-out;
-
-        }
-
-        .project-thumbnail:hover {
-            opacity: 1;
-        }
-
-        .project-title {
-            font-family: 'Lora', serif;
-            margin: 0.5rem 0;
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-
-        .resume-bg {
-            background: #BF135E;
-            /*height: 25rem;*/
-            width: 100%;
-            padding-top: 5rem;
-            padding-bottom: 1rem;
-        }
-
-        .resume-header {
-            background: #000;
-            width: 50%;
-            margin: -8rem auto;
-            display: flex;
-            justify-content: center;
-            font-family: 'Homemade Apple', cursive;
-            font-size: 2.5rem;
-            line-height: 6rem;
-            height: 6rem;
-            color: whitesmoke;
-        }
-
-        .resume-block {
-            /*width: 20%;*/
-            width: 25%;
-            /*justify-content: space-evenly;*/
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .resume-block-text {
-            margin: 1rem 0 0.5rem 0;
-            font-size: 1.25rem;
-            font-family: 'Lora', serif;
-        }
-
-        .resume-icon {
-            color: #000;
-            height: 80px;
-            width: 80px;
-            line-height: 80px;
-            font-size: 40px;
-            background: #E9C9D7;
-            border-radius: 100px;
-            transition: 0.3s ease-in-out;
-        }
-
-        .resume-icon-row {
-            width: 100%;
-            display: flex;
-            margin-top: 10rem;
-        }
-
-        .resume-icon:hover {
-            color: #E9C9D7;
-            background: #000;
-        }
-
-        .active-icon {
-            color: #E9C9D7;
-            background: #000;
-        }
-
-        .resume-info {
-            background: #E9C9D7;
-            width: 90%;
-            margin: 3rem auto;
-            height: 16rem;
-            overflow: auto;
-            color: #BF135E;
-            padding: 1.5rem;
-            line-height: 1.5rem;
-            font-size: 1rem;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .resume-info-item {
-            width: 33%;
-            margin: 1rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .about {
-            background: whitesmoke;
-            width: 100%;
-            display: flex;
-            padding-bottom: 5rem;
-        }
-
-        .about-photo {
-            /*width: 40%;*/
-            /*margin: 5rem;*/
-            width: 100%;
-        }
-
-        .about-header {
-            background: #E9C9D7;
-            display: flex;
-            justify-content: center;
-            font-family: 'Homemade Apple', cursive;
-            font-size: 2.5rem;
-            line-height: 6rem;
-            height: 6rem;
-            color: #000;
-            margin-bottom: 1rem;
-        }
-
-        .about-block {
-            width: 50%;
-            margin: 2rem;
-        }
-
-        .about-text {
-            font-size: 1.25rem;
-            line-height: 1.5rem;
-        }
-
-        .footer {
-            background: #000;
-            color: whitesmoke;
-            display: flex;
-            padding-top: 5rem;
-            width: 100%;
-        }
-
-        .fa-lg {
-            cursor: pointer;
-            margin: 0 0.5rem;
-            background: #E9C9D7;
-            color: #000;
-            padding: 0.75rem;
-            border-radius: 100px;
-            transition: 0.3s ease-in-out;
-        }
-
-        .fa-lg:hover {
-            background: #BF135E;
-            color: whitesmoke;
-        }
-
-        .footer-item {
-            width: 33%;
-        }
-
-        a.footer-link {
-            cursor: pointer;
-            color: whitesmoke;
-            transition: 0.3s ease-in-out;
-        }
-
-        a.footer-link:hover {
-            color: #BF135E;
-        }
-
-    </style>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="header center">
+<div class="header">
     <div class="toolbar">
-    <a href="#portfolio">portfolio </a>
-    <a href="#resume">résumé </a>
-    <a href="#about">about </a>
-    <a href="#connect">connect </a>
+        <a href="#portfolio"> portfolio </a>
+        <a href="#resume"> bio </a>
+        <a href="#about"> about </a>
+        <a href="#connect"> connect </a>
     </div>
+    <h2 class="header-text">Lauren Oldham Jaromczyk</h2>
+<!--    <div class="subheader">Data visualization developer</div>-->
+
 </div>
 
-<div class="subheader center">lauren jaromczyk</div>
-
-<div class="warning">
-    <p><span class="material-icons">warning</span> UNDER CONSTRUCTION <span class="material-icons">warning</span></p>
-    <p>Some things might look a little sparse or out of place right now, but more updates are coming soon!</p>
-</div>
-
-<!-- TODO: Style toolbar links when scrolling through page with active section -->
 <div class="anchor" id="portfolio"></div>
+<div class="portfolio-container">
+    <div class="card">
+        <div class="card-thumbnail">img placeholder</div>
+        <div class="card-content">
+            <h4>Project Title</h4>
+            <p>Here is a short description of the project. Maybe include the purpose of the project and who worked on it.
+                Also highlight pieces that you worked specifically. Maybe the date too?
+            </p>
+            <div class="skills-badges">
+                <div class="badge">HTML</div>
+                <div class="badge">CSS</div>
+                <div class="badge">Javascript</div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-thumbnail">img placeholder</div>
+        <div class="card-content">
+            <h4>Project Title</h4>
+            <p>Here is a short description of the project. Maybe include the purpose of the project and who worked on it.
+                Also highlight pieces that you worked specifically. Maybe the date too?
+            </p>
+            <div class="skills-badges">
+                <div class="badge">HTML</div>
+                <div class="badge">CSS</div>
+                <div class="badge">Javascript</div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-thumbnail">img placeholder</div>
+        <div class="card-content">
+            <h4>Project Title</h4>
+            <p>Here is a short description of the project. Maybe include the purpose of the project and who worked on it.
+                Also highlight pieces that you worked specifically. Maybe the date too?
+            </p>
+            <div class="skills-badges">
+                <div class="badge">HTML</div>
+                <div class="badge">CSS</div>
+                <div class="badge">Javascript</div>
+            </div>
+        </div>
+    </div>
 
-<!-- TODO: BUG- Mousing over project title needs to adjust img opacity -->
-<div class="project-container">
-    <div class="project-row">
-        <a class="project" href="https://laurenoldham1202.github.io/mens-college-basketball/" target="_blank">
-            <div class="project-img">
-                <img src="./images/projects/bball1.png" class="project-thumbnail">
-            </div>
-            <div class="project-title">Going the Distance</div>
-            Men's College Basketball Travel Distance Analysis
-        </a>
-        <a class="project" href="https://laurenoldham1202.github.io/africa-colonizability/" target="_blank">
-            <div class="project-img">
-                <img src="./images/projects/colonizability.png" class="project-thumbnail">
-            </div>
-            <div class="project-title">Colonizability of Africa</div>
-            Analysis of Digitized Map from 1899
-        </a>
-        <a class="project" href="https://laurenoldham1202.github.io/african-conflicts/" target="_blank">
-            <div class="project-img">
-                <img src="./images/projects/african-conflict.png" class="project-thumbnail">
-            </div>
-            <div class="project-title">African Conflict</div>
-            Data Visualization of Conflicts in 2018
-        </a>
-    </div>
-    <div class="project-row">
-        <a class="project" href="http://laurenoldham1202.github.io/magic-ethiopia/" target="_blank">
-            <div class="project-img">
-                <img src="./images/projects/magic2.png" class="project-thumbnail">
-            </div>
-            <div class="project-title">Ethiopia Crop Calendar Index</div>
-            Drought Exposure Tool in Ethiopia
-        </a>
-        <div class="project unavailable">
-            <div class="project-img">
-                <img src="./images/projects/ufo2.png" class="project-thumbnail">
-            </div>
-            <div class="project-title">We Come in Peace!</div>
-            US UFO Sightings and Military Installations
-        </div>
-        <div class="project unavailable">
-            <div class="project-img">
-                <img src="./images/projects/fingerlakes.png" class="project-thumbnail">
-            </div>
-            <div class="project-title">Who Wants a Drink?</div>
-            Finger Lakes Winery and Brewery Analysis
-        </div>
-    </div>
 </div>
 
-<div class="anchor" id="resume" style="top: -125px !important;"></div>
+<!--<div class="header center">-->
+<!--    <div class="toolbar">-->
+<!--    <a href="#portfolio">portfolio </a>-->
+<!--    <a href="#resume">résumé </a>-->
+<!--    <a href="#about">about </a>-->
+<!--    <a href="#connect">connect </a>-->
+<!--    </div>-->
+<!--</div>-->
 
-<!-- TODO BUG: Click resume-block div highlights icon, but only clicking icon directly selects resume element -->
-<div class="resume-bg">
-    <div class="resume-header">résumé</div>
-    <div class="resume-icon-row">
-        <div class="resume-block" id="professional">
-<!--            <div class="material-icons">web</div>-->
-<!--            <div class="resume-block-text">software</div>-->
-            <div class="material-icons resume-icon active-icon">work_outline</div>
-            <div class="resume-block-text">professional</div>
-        </div>
-        <div class="resume-block" id="education">
-<!--            <span class="material-icons">public</span>-->
-<!--            <div class="resume-block-text">geography</div>-->
-            <span class="material-icons resume-icon">school</span>
-            <div class="resume-block-text">education</div>
-        </div>
-        <div class="resume-block" id="skills">
-<!--            <span class="material-icons">work_outline</span>-->
-<!--            <div class="resume-block-text">startups</div>-->
-            <span class="material-icons resume-icon">list</span>
-            <div class="resume-block-text">skills</div>
-        </div>
-        <div class="resume-block" id="volunteer">
-            <span class="material-icons resume-icon">people_outline</span>
-            <div class="resume-block-text">volunteer</div>
-        </div>
-<!--        <div class="resume-block" id="awards">-->
-<!--            <span class="material-icons">emoji_events</span>-->
-<!--            <div class="resume-block-text">awards</div>-->
+<!--<div class="subheader center">lauren jaromczyk</div>-->
+
+<!--<div class="warning">-->
+<!--    <p><span class="material-icons">warning</span> UNDER CONSTRUCTION <span class="material-icons">warning</span></p>-->
+<!--    <p>Some things might look a little sparse or out of place right now, but more updates are coming soon!</p>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; TODO: Style toolbar links when scrolling through page with active section &ndash;&gt;-->
+<!--<div class="anchor" id="portfolio"></div>-->
+
+<!--&lt;!&ndash; TODO: BUG- Mousing over project title needs to adjust img opacity &ndash;&gt;-->
+<!--<div class="project-container">-->
+<!--    <div class="project-row">-->
+<!--        <a class="project" href="https://laurenoldham1202.github.io/mens-college-basketball/" target="_blank">-->
+<!--            <div class="project-img">-->
+<!--                <img src="./images/projects/bball1.png" class="project-thumbnail">-->
+<!--            </div>-->
+<!--            <div class="project-title">Going the Distance</div>-->
+<!--            Men's College Basketball Travel Distance Analysis-->
+<!--        </a>-->
+<!--        <a class="project" href="https://laurenoldham1202.github.io/africa-colonizability/" target="_blank">-->
+<!--            <div class="project-img">-->
+<!--                <img src="./images/projects/colonizability.png" class="project-thumbnail">-->
+<!--            </div>-->
+<!--            <div class="project-title">Colonizability of Africa</div>-->
+<!--            Analysis of Digitized Map from 1899-->
+<!--        </a>-->
+<!--        <a class="project" href="https://laurenoldham1202.github.io/african-conflicts/" target="_blank">-->
+<!--            <div class="project-img">-->
+<!--                <img src="./images/projects/african-conflict.png" class="project-thumbnail">-->
+<!--            </div>-->
+<!--            <div class="project-title">African Conflict</div>-->
+<!--            Data Visualization of Conflicts in 2018-->
+<!--        </a>-->
+<!--    </div>-->
+<!--    <div class="project-row">-->
+<!--        <a class="project" href="http://laurenoldham1202.github.io/magic-ethiopia/" target="_blank">-->
+<!--            <div class="project-img">-->
+<!--                <img src="./images/projects/magic2.png" class="project-thumbnail">-->
+<!--            </div>-->
+<!--            <div class="project-title">Ethiopia Crop Calendar Index</div>-->
+<!--            Drought Exposure Tool in Ethiopia-->
+<!--        </a>-->
+<!--        <div class="project unavailable">-->
+<!--            <div class="project-img">-->
+<!--                <img src="./images/projects/ufo2.png" class="project-thumbnail">-->
+<!--            </div>-->
+<!--            <div class="project-title">We Come in Peace!</div>-->
+<!--            US UFO Sightings and Military Installations-->
 <!--        </div>-->
-    </div>
+<!--        <div class="project unavailable">-->
+<!--            <div class="project-img">-->
+<!--                <img src="./images/projects/fingerlakes.png" class="project-thumbnail">-->
+<!--            </div>-->
+<!--            <div class="project-title">Who Wants a Drink?</div>-->
+<!--            Finger Lakes Winery and Brewery Analysis-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-    <div class="resume-info">
-        <!-- TODO Add generic about info instead of defaulting to professional experience-->
-        <div class="resume-info-item">
-            <div class="resume-block-text">Front-End UI Developer</div>
-            <em>Ursa Space Systems - Ithaca, NY</em>
-            April 2018 - present
-        </div>
-        <div class="resume-info-item">
-            <div class="resume-block-text">GIS Developer</div>
-            <em>Global Parametrics - Lexington, KY</em>
-            June 2015 - April 2018
-        </div>
-        <div class="resume-info-item">
-            <div class="resume-block-text">GIS Technical Intern</div>
-            <em>Sandia National Laboratories</em>
-            May 2013 - August 2013
-        </div>
-    </div>
-</div>
+<!--<div class="anchor" id="resume" style="top: -125px !important;"></div>-->
 
-<div class="anchor" id="about"></div>
-<div class="about">
-    <div class="about-block">
-        <img src="./images/about/sedona.jpg" class="about-photo">
-    </div>
-    <div class="about-block">
-        <div class="about-header">hi there!</div>
-        <div class="about-text">
-            <p>
-                I'm Lauren Jaromczyk, formerly Oldham (apparently I'm destined to have a funny-sounding last name).
-                I'm a Kentucky-native who is still learning to survive winters in my new home base in upstate New York.
-            </p>
-            <p>
-                My career passion lies at the intersection of technology and social sciences, primarily focusing on
-                geography and geospatial data. I currently work as a front-end UI developer and have a wealth of experience
-                building data-driven web applications. Enriching data science with usable, slick, and fun data
-                visualizations is what excites and motivates me most in my career.
-            </p>
-            <p>
-                When I'm not working, I enjoy the great outdoors with day hikes and birdwatching. When stuck inside
-                for half the year, I read, bake, do yoga, and binge watch the same 6 TV shows on repeat.
-            </p>
-        </div>
-    </div>
-</div>
+<!--&lt;!&ndash; TODO BUG: Click resume-block div highlights icon, but only clicking icon directly selects resume element &ndash;&gt;-->
+<!--<div class="resume-bg">-->
+<!--    <div class="resume-header">résumé</div>-->
+<!--    <div class="resume-icon-row">-->
+<!--        <div class="resume-block" id="professional">-->
+<!--&lt;!&ndash;            <div class="material-icons">web</div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="resume-block-text">software</div>&ndash;&gt;-->
+<!--            <div class="material-icons resume-icon active-icon">work_outline</div>-->
+<!--            <div class="resume-block-text">professional</div>-->
+<!--        </div>-->
+<!--        <div class="resume-block" id="education">-->
+<!--&lt;!&ndash;            <span class="material-icons">public</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="resume-block-text">geography</div>&ndash;&gt;-->
+<!--            <span class="material-icons resume-icon">school</span>-->
+<!--            <div class="resume-block-text">education</div>-->
+<!--        </div>-->
+<!--        <div class="resume-block" id="skills">-->
+<!--&lt;!&ndash;            <span class="material-icons">work_outline</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="resume-block-text">startups</div>&ndash;&gt;-->
+<!--            <span class="material-icons resume-icon">list</span>-->
+<!--            <div class="resume-block-text">skills</div>-->
+<!--        </div>-->
+<!--        <div class="resume-block" id="volunteer">-->
+<!--            <span class="material-icons resume-icon">people_outline</span>-->
+<!--            <div class="resume-block-text">volunteer</div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="resume-block" id="awards">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span class="material-icons">emoji_events</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="resume-block-text">awards</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    </div>-->
 
-<div class="anchor" id="connect"></div>
+<!--    <div class="resume-info">-->
+<!--        &lt;!&ndash; TODO Add generic about info instead of defaulting to professional experience&ndash;&gt;-->
+<!--        <div class="resume-info-item">-->
+<!--            <div class="resume-block-text">Front-End UI Developer</div>-->
+<!--            <em>Ursa Space Systems - Ithaca, NY</em>-->
+<!--            April 2018 - present-->
+<!--        </div>-->
+<!--        <div class="resume-info-item">-->
+<!--            <div class="resume-block-text">GIS Developer</div>-->
+<!--            <em>Global Parametrics - Lexington, KY</em>-->
+<!--            June 2015 - April 2018-->
+<!--        </div>-->
+<!--        <div class="resume-info-item">-->
+<!--            <div class="resume-block-text">GIS Technical Intern</div>-->
+<!--            <em>Sandia National Laboratories</em>-->
+<!--            May 2013 - August 2013-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-<!-- TODO Make these classes generic -->
-<div class="resume-bg" style="background: #000 !important;">
-    <div class="resume-header" style="background: #BF135E !important;">connect</div>
-    <div class="resume-icon-row" style="padding: 1rem 2rem; color: whitesmoke;">
-        <div class="footer-item">
-            Updated October 2020.
-        </div>
-        <div class="footer-item" style="text-align: center;">
-            <a href="https://www.linkedin.com/in/lauren-oldham/" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
-            <a href="https://stackoverflow.com/users/5775267/lauren" target="_blank"><i class="fa fa-stack-overflow fa-lg"></i></a>
-            <a href="https://gis.stackexchange.com/users/54986/lauren" target="_blank"><i class="fa fa-stack-exchange fa-lg"></i></a>
-            <a href="https://github.com/laurenoldham1202/" target="_blank"><i class="fa fa-github fa-lg"></i></a>
-        </div>
-        <div class="footer-item" style="text-align: right;">
-            <a href="mailto:laurenoldham1202@gmail.com" class="footer-link">laurenoldham1202@gmail.com</a>
-        </div>
-    </div>
-</div>
+<!--<div class="anchor" id="about"></div>-->
+<!--<div class="about">-->
+<!--    <div class="about-block">-->
+<!--        <img src="./images/about/sedona.jpg" class="about-photo">-->
+<!--    </div>-->
+<!--    <div class="about-block">-->
+<!--        <div class="about-header">hi there!</div>-->
+<!--        <div class="about-text">-->
+<!--            <p>-->
+<!--                I'm Lauren Jaromczyk, formerly Oldham (apparently I'm destined to have a funny-sounding last name).-->
+<!--                I'm a Kentucky-native who is still learning to survive winters in my new home base in upstate New York.-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                My career passion lies at the intersection of technology and social sciences, primarily focusing on-->
+<!--                geography and geospatial data. I currently work as a front-end UI developer and have a wealth of experience-->
+<!--                building data-driven web applications. Enriching data science with usable, slick, and fun data-->
+<!--                visualizations is what excites and motivates me most in my career.-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                When I'm not working, I enjoy the great outdoors with day hikes and birdwatching. When stuck inside-->
+<!--                for half the year, I read, bake, do yoga, and binge watch the same 6 TV shows on repeat.-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-<script>
+<!--<div class="anchor" id="connect"></div>-->
 
-    contentProfessional = `
-        <div class="resume-info-item">
-            <div class="resume-block-text">Front-End UI Developer</div>
-            <em>Ursa Space Systems - Ithaca, NY</em>
-            April 2018 - present
-        </div>
-        <div class="resume-info-item">
-            <div class="resume-block-text">GIS Developer</div>
-            <em>Global Parametrics - Lexington, KY</em>
-            June 2015 - April 2018
-        </div>
-        <div class="resume-info-item">
-            <div class="resume-block-text">GIS Technical Intern</div>
-            <em>Sandia National Laboratories</em>
-            May 2013 - August 2013
-        </div>
-    `;
+<!--&lt;!&ndash; TODO Make these classes generic &ndash;&gt;-->
+<!--<div class="resume-bg" style="background: #000 !important;">-->
+<!--    <div class="resume-header" style="background: #BF135E !important;">connect</div>-->
+<!--    <div class="resume-icon-row" style="padding: 1rem 2rem; color: whitesmoke;">-->
+<!--        <div class="footer-item">-->
+<!--            Updated October 2020.-->
+<!--        </div>-->
+<!--        <div class="footer-item" style="text-align: center;">-->
+<!--            <a href="https://www.linkedin.com/in/lauren-oldham/" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>-->
+<!--            <a href="https://stackoverflow.com/users/5775267/lauren" target="_blank"><i class="fa fa-stack-overflow fa-lg"></i></a>-->
+<!--            <a href="https://gis.stackexchange.com/users/54986/lauren" target="_blank"><i class="fa fa-stack-exchange fa-lg"></i></a>-->
+<!--            <a href="https://github.com/laurenoldham1202/" target="_blank"><i class="fa fa-github fa-lg"></i></a>-->
+<!--        </div>-->
+<!--        <div class="footer-item" style="text-align: right;">-->
+<!--            <a href="mailto:laurenoldham1202@gmail.com" class="footer-link">laurenoldham1202@gmail.com</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-    contentEducation = `
-<div class="resume-info-item">
-  <div class="resume-block-text">Master of Science in Digital Mapping</div>
-  <em>University of Kentucky</em>
-  2019-2020
-</div>
-<div class="resume-info-item">
-  <div class="resume-block-text">Bachelor of Arts in Geography</div>
-  <em>University of Kentucky</em>
-  2010-2014
-</div>
+<!--<script>-->
 
-`;
+<!--    contentProfessional = `-->
+<!--        <div class="resume-info-item">-->
+<!--            <div class="resume-block-text">Front-End UI Developer</div>-->
+<!--            <em>Ursa Space Systems - Ithaca, NY</em>-->
+<!--            April 2018 - present-->
+<!--        </div>-->
+<!--        <div class="resume-info-item">-->
+<!--            <div class="resume-block-text">GIS Developer</div>-->
+<!--            <em>Global Parametrics - Lexington, KY</em>-->
+<!--            June 2015 - April 2018-->
+<!--        </div>-->
+<!--        <div class="resume-info-item">-->
+<!--            <div class="resume-block-text">GIS Technical Intern</div>-->
+<!--            <em>Sandia National Laboratories</em>-->
+<!--            May 2013 - August 2013-->
+<!--        </div>-->
+<!--    `;-->
 
-    // TODO Add python, jupyter notebooks
-    contentSkills = `
-<div class="resume-info-item">
-  <div class="resume-block-text">GIS and Digital Mapping</div>
-  MapboxGL and Mapbox Studio
-  <br>Leaflet
-  <br>QGIS
-  <br>Spatial Analysis
-  <br>Interactive web mapping
-</div>
-<div class="resume-info-item">
-  <div class="resume-block-text">Tech</div>
-  Javascript, Typescript
-  <br>Angular
-  <br>HTML, CSS, ES6
-  <br>Material, Bootstrap
-  <br>R, Shiny
-</div>
-<div class="resume-info-item">
-  <div class="resume-block-text">Software Development</div>
-  Scrum
-  <br>Git
-  <br>Code review
-  <br>Unit and user testing
-  <br>Front-end development
-</div>
+<!--    contentEducation = `-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">Master of Science in Digital Mapping</div>-->
+<!--  <em>University of Kentucky</em>-->
+<!--  2019-2020-->
+<!--</div>-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">Bachelor of Arts in Geography</div>-->
+<!--  <em>University of Kentucky</em>-->
+<!--  2010-2014-->
+<!--</div>-->
 
-    `;
+<!--`;-->
 
-    contentVolunteer = `
-<div class="resume-info-item">
-  <div class="resume-block-text">2019</div>
-  Moderated Women in Tech and Entrepreneurship Panel
-  <br>Volunteered for Caroline Elementary STEAM Night
-</div>
-<div class="resume-info-item">
-  <div class="resume-block-text">2018</div>
-  Organized Ithaca Girls in STEAM event
-</div>
-<div class="resume-info-item">
-  <div class="resume-block-text">2017</div>
-  Presenter and panelist for University of Kentucky Women in Engineering Summer Workshop Series
-</div>
+<!--    // TODO Add python, jupyter notebooks-->
+<!--    contentSkills = `-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">GIS and Digital Mapping</div>-->
+<!--  MapboxGL and Mapbox Studio-->
+<!--  <br>Leaflet-->
+<!--  <br>QGIS-->
+<!--  <br>Spatial Analysis-->
+<!--  <br>Interactive web mapping-->
+<!--</div>-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">Tech</div>-->
+<!--  Javascript, Typescript-->
+<!--  <br>Angular-->
+<!--  <br>HTML, CSS, ES6-->
+<!--  <br>Material, Bootstrap-->
+<!--  <br>R, Shiny-->
+<!--</div>-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">Software Development</div>-->
+<!--  Scrum-->
+<!--  <br>Git-->
+<!--  <br>Code review-->
+<!--  <br>Unit and user testing-->
+<!--  <br>Front-end development-->
+<!--</div>-->
 
-    `;
+<!--    `;-->
 
-    resumeMap = {
-        professional: contentProfessional,
-        education: contentEducation,
-        skills: contentSkills,
-        volunteer: contentVolunteer,
-        awards: 'awards',
-    };
+<!--    contentVolunteer = `-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">2019</div>-->
+<!--  Moderated Women in Tech and Entrepreneurship Panel-->
+<!--  <br>Volunteered for Caroline Elementary STEAM Night-->
+<!--</div>-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">2018</div>-->
+<!--  Organized Ithaca Girls in STEAM event-->
+<!--</div>-->
+<!--<div class="resume-info-item">-->
+<!--  <div class="resume-block-text">2017</div>-->
+<!--  Presenter and panelist for University of Kentucky Women in Engineering Summer Workshop Series-->
+<!--</div>-->
 
-    $('.resume-block').on('click', (e) => {
-        // console.log(e.target.parentElement.id);
-        const id = e.target.parentElement.id;
-        // $('.resume-text').text(resumeMap[id]);
-        $('.resume-info').html(resumeMap[id]);
-        // $(e.target).append(`<!--<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>-->`)
-        $('.material-icons').removeClass('active-icon');
-        $(e.currentTarget.children[0]).addClass('active-icon');
+<!--    `;-->
 
-        Object.keys(resumeMap).forEach(key => {
-           if (key === id) {
+<!--    resumeMap = {-->
+<!--        professional: contentProfessional,-->
+<!--        education: contentEducation,-->
+<!--        skills: contentSkills,-->
+<!--        volunteer: contentVolunteer,-->
+<!--        awards: 'awards',-->
+<!--    };-->
 
-               $(`.resume-${id}`).css('max-height', '20rem');
-               $(`.resume-${id}`).css('overflow', 'visible');
-           } else {
-               $(`.resume-${key}`).css('max-height', '0');
-               $(`.resume-${key}`).css('overflow', 'hidden');
-           }
-        });
-    });
+<!--    $('.resume-block').on('click', (e) => {-->
+<!--        // console.log(e.target.parentElement.id);-->
+<!--        const id = e.target.parentElement.id;-->
+<!--        // $('.resume-text').text(resumeMap[id]);-->
+<!--        $('.resume-info').html(resumeMap[id]);-->
+<!--        // $(e.target).append(`&lt;!&ndash;<div class='doot' style="border-left: 1px solid white; height: 100px; margin-left: 50%;"></div>&ndash;&gt;`)-->
+<!--        $('.material-icons').removeClass('active-icon');-->
+<!--        $(e.currentTarget.children[0]).addClass('active-icon');-->
 
-    $('.unavailable').on('mouseover', () => {
-       // TODO Add currently unavailable message
-    });
+<!--        Object.keys(resumeMap).forEach(key => {-->
+<!--           if (key === id) {-->
+
+<!--               $(`.resume-${id}`).css('max-height', '20rem');-->
+<!--               $(`.resume-${id}`).css('overflow', 'visible');-->
+<!--           } else {-->
+<!--               $(`.resume-${key}`).css('max-height', '0');-->
+<!--               $(`.resume-${key}`).css('overflow', 'hidden');-->
+<!--           }-->
+<!--        });-->
+<!--    });-->
+
+<!--    $('.unavailable').on('mouseover', () => {-->
+<!--       // TODO Add currently unavailable message-->
+<!--    });-->
 
 
-</script>
+<!--  </script> -->
 
 </body>
 </html>
