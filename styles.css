@@ -71,11 +71,12 @@ text-transform: lowercase;
   visibility: hidden;
 }
 
+
 /*@media (max-width: 500px) {*/
   .card {
     background: #fff;
     padding: 1rem;
-    margin: 1rem 3rem;
+    margin: 1rem 2rem;
     height: 25rem;
     border-radius: 4px;
   }
@@ -106,6 +107,81 @@ text-transform: lowercase;
     margin: 0.25rem;
     padding: 0.5rem;
   }
+
+  .portfolio-container {
+    margin-top: 3rem;
+  }
+
+  .resume-container {
+    color: #fff;
+    margin-top: 3rem;
+  }
+
+  .resume-section {
+    /*height: 10rem;*/
+    /*border: 1px dotted deepskyblue;*/
+    margin: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.9rem;
+
+  }
+
+ul {
+  list-style: none;
+  padding: 0 !important;
+}
+  .resume-header {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(131,58,180,1);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    /*border-bottom: 1px solid rgba(131,58,180,1);*/
+    margin-bottom: 0.5rem;
+
+
+  }
+
+  .work-section {
+  }
+  .work-row {
+    display: flex;
+  }
+
+  .years {
+    margin-left: auto;
+  }
+  .title {
+    font-weight: 700;
+  }
+  .subtitle {
+    font-size: 0.75rem;
+
+  }
+
+
+
+
+
+
+
+
+
+  .x-row {
+    height: 25rem; width: 50%;
+    padding: 1rem;
+  }
+
+  .x-subheader {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: rgba(131,58,180,1);
+  }
+
 /*}*/
 
 
