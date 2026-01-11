@@ -9,9 +9,8 @@
   --accent-4: #ec4899;
 }
 
-/* Dark mode (manual via .dark on body, or auto via prefers-color-scheme) */
 body.dark {
-  --bg: #0b1020;            /* deep purplish blue */
+  --bg: #0b1020;
   --card: #121834;
   --text: #e5e7eb;
   --muted: #9aa3c7;
@@ -89,22 +88,6 @@ header p {
   max-width: 760px;
   font-size: 1.1rem;
   color: var(--muted);
-}
-
-.theme-switcher button {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: background 0.25s ease, border-color 0.25s ease;
-}
-
-.theme-switcher button:hover {
-  border-color: var(--accent);
-  background: rgba(99,102,241,0.08);
 }
 
 section { margin-bottom: 4.5rem; }
@@ -218,3 +201,12 @@ body.dark .project-card {
   padding-left: 1.25rem;
   color: var(--muted);
 }
+
+.divider {
+  width: 100%;
+  max-width: 640px;
+  height: 1px;
+  margin: 1rem auto;
+  background-color: var(--border);
+}
+
