@@ -210,3 +210,7 @@ body.dark .project-card {
   background-color: var(--border);
 }
 
+footer {
+  font-size: 0.75rem;
+}
+
